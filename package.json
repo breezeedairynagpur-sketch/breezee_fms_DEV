@@ -19,7 +19,7 @@
   "cds": {
     "requires": {
       "auth": {
-        "kind": "jwt"
+        "kind": "mocked"
       }
     }
 }
