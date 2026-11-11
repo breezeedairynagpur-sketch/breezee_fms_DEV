@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App Settings</title>
+</head>
+<body>
+
+    <h1>App Settings</h1>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Setting Group</th>
+            </tr>
+        </thead>
+        <tbody id="settingsTable">
+            <tr>
+                <td colspan="2">Loading...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        async function loadSettings() {
+            const apiUrl =
+                "http://localhost:4004/odata/v4/settings/AppSettings";
+
+            const tableBody =
+                document.getElementById("settingsTable");
+
+            try {
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+                    throw new Error("API request failed");
+                }
+
+                const result = await response.json();
+
+                // OData response contains value array
+                const settings = result.value || [];
+
+                tableBody.innerHTML = "";
+
+                settings.forEach(item => {
+                    const row = document.createElement("tr");
+
+                    const idCell = document.createElement("td");
+                    idCell.textContent = item.id;
+
+                    const groupCell = document.createElement("td");
+                    groupCell.textContent = item.setting_group;
+
+                    row.appendChild(idCell);
+                    row.appendChild(groupCell);
+
+                    tableBody.appendChild(row);
+                });
+
+            } catch (error) {
+                console.error(error);
+                tableBody.innerHTML =
+                    "<tr><td colspan='2'>Error loading settings</td></tr>";
+            }
+        }
+
+        loadSettings();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+ID,name,category,price,stock,status
+1,Burger,Fast Food,120.00,50,Active
+2,Pizza,Fast Food,250.00,30,Active
+3,Coffee,Beverages,80.00,100,Active
+4,Sandwich,Snacks,100.00,40,Active

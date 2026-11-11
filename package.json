@@ -1,0 +1,17 @@
+{
+  "name": "breezee_fms",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@sap/cds": "^10",
+    "dotenv": "^18.0.10",
+    "mysql2": "^3.24.6"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^3"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true
+}
