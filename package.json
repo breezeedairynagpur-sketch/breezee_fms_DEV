@@ -15,5 +15,12 @@
     "start": "cds-serve",
     "watch": "cds watch"
   },
-  "private": true
+  "private": true,
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "jwt"
+      }
+    }
+}
 }
